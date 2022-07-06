@@ -53,14 +53,16 @@ class UserController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            # On peut enfin return et rediriger l'utilisateur là ou on le souhaite
+            # Grâce à la méthode addflash () affiche et stock message twig dans la session destinés à l'utilisateur en front, il prend toujours 2 paramêtres, l'action et le message, le résultat est sous forme de 2 TABLEAUX 1 tableau pour action et 1 tableau pour le message, c'est pourquoi nous tuiliserons 2 boucles FOR pour l'affichage dans le fichier _flashes.html.twig
+            $this->addFlash('success', 'Vous êtes inscrit avec succès');
 
-            return $this->redirectToRoute('default_home');
-        }
+            # On peut enfin return et rediriger l'utilisateur là ou on le souhaite
+            return $this->redirectToRoute('app_login');
+        } # end if()
 
         # On rend la vue qui contient le formulaire d'inscription
         return $this->render("user/register.html.twig", [
             'form_register' => $form->createView()
         ]);
-    }
-}
+    }# end function register()
+}# end class
