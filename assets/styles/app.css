@@ -1,0 +1,9 @@
+body {
+    background-color: lightgray;
+}
+
+.img-thumbnail{
+object-fit: cover;
+}
+
+/* A chaque modif de CSS et de JS, il faut faire la commande NPM RUN DEV dans le terminal pour mettre à jour le navigateur
