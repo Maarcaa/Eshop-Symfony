@@ -62,7 +62,8 @@ class ProduitController extends AbstractController
     } # end if($form)
 
     return $this->render("admin/form/form_produit.html.twig", [
-      'form' => $form->createView()
+      'form' => $form->createView(),
+      'produit' => $produit
     ]);
   }
 
