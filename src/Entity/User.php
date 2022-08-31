@@ -65,6 +65,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $deletedAt;
 
+    private $fullname;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -224,5 +226,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->deletedAt = $deletedAt;
 
         return $this;
+    }
+
+    public function getFullname(): string
+    {
+        $this->fullname =  $this->getFirstname() . ' ' . $this->getLastname();
+
+        return $this->fullname;
     }
 }
